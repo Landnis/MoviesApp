@@ -9,12 +9,23 @@ import UIKit
 
 class StrartingVew: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    @IBOutlet weak var movieImg: UIImageView! {
+        didSet {
+            movieImg.image = UIImage(named: "MoviewApp")
+            movieImg.backgroundColor = .clear
+        }
     }
-    */
+    
+    @IBOutlet weak var loadingLabel: UILabel! {
+        didSet {
+            loadingLabel.text = "Loading..."
+            loadingLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+            loadingLabel.textAlignment = .center
+            loadingLabel.layer.shadowColor = UIColor.black.cgColor
+            loadingLabel.layer.shadowOpacity = 0.5
+            loadingLabel.layer.shadowRadius = 4
+            loadingLabel.layer.shadowOffset = CGSize(width: 1, height: 1)
+        }
+    }
 
 }

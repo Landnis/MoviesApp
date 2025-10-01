@@ -9,11 +9,23 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var startView: StrartingVew!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        startView.backgroundColor = .red
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
+            let movieScreenVC = MoviesScreenViewController()
+            let navController = UINavigationController(rootViewController: movieScreenVC)
+            navController.modalPresentationStyle = .fullScreen
+            navController.isNavigationBarHidden = true
+            self?.present(navController, animated: true, completion: nil)
+        }
+    }
 
 }
 
