@@ -13,10 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        let firstVC = ViewController()
-//        let navController = UINavigationController(rootViewController: firstVC)
-//        window?.rootViewController = navController
-//        window?.makeKeyAndVisible()
+
         return true
     }
 

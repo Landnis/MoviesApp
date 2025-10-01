@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		CF75E8C92E8D7D13008F9C0F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CF75E8C82E8D7D13008F9C0F /* Alamofire */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		CF0C3C722E8BFC0500407163 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -22,6 +26,19 @@
 			remoteInfo = MoviesApp;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CF75E8BA2E8D7357008F9C0F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		CF0C3C5B2E8BFC0200407163 /* MoviesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF75E8C92E8D7D13008F9C0F /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +109,7 @@
 				CF0C3C5D2E8BFC0200407163 /* MoviesApp */,
 				CF0C3C742E8BFC0500407163 /* MoviesAppTests */,
 				CF0C3C7E2E8BFC0500407163 /* MoviesAppUITests */,
+				CF75E8B42E8D7333008F9C0F /* Frameworks */,
 				CF0C3C5C2E8BFC0200407163 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -105,6 +124,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		CF75E8B42E8D7333008F9C0F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -115,6 +141,7 @@
 				CF0C3C572E8BFC0200407163 /* Sources */,
 				CF0C3C582E8BFC0200407163 /* Frameworks */,
 				CF0C3C592E8BFC0200407163 /* Resources */,
+				CF75E8BA2E8D7357008F9C0F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,6 +152,7 @@
 			);
 			name = MoviesApp;
 			packageProductDependencies = (
+				CF75E8C82E8D7D13008F9C0F /* Alamofire */,
 			);
 			productName = MoviesApp;
 			productReference = CF0C3C5B2E8BFC0200407163 /* MoviesApp.app */;
@@ -209,7 +237,7 @@
 			mainGroup = CF0C3C522E8BFC0200407163;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				CF0C3CD02E8C1CC900407163 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				CF75E8C72E8D7D0B008F9C0F /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = CF0C3C5C2E8BFC0200407163 /* Products */;
@@ -576,7 +604,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		CF0C3CD02E8C1CC900407163 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		CF75E8C72E8D7D0B008F9C0F /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -585,6 +613,14 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CF75E8C82E8D7D13008F9C0F /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CF75E8C72E8D7D0B008F9C0F /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CF0C3C532E8BFC0200407163 /* Project object */;
 }

@@ -37,7 +37,7 @@
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="0A8-df-1hC">
-                    <rect key="frame" x="0.0" y="162" width="393" height="638"/>
+                    <rect key="frame" x="0.0" y="162" width="393" height="690"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="skr-3V-HEU">
                         <size key="itemSize" width="128" height="128"/>
@@ -50,13 +50,12 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="0A8-df-1hC" secondAttribute="bottom" constant="10" id="5W5-xc-dXc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="0A8-df-1hC" secondAttribute="bottom" constant="-34" id="5W5-xc-dXc"/>
                 <constraint firstItem="0A8-df-1hC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="AF9-ls-NzJ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="QLT-ce-Me4" secondAttribute="trailing" id="AnY-Aw-C2N"/>
                 <constraint firstItem="QLT-ce-Me4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="UoF-fS-GOC"/>
                 <constraint firstItem="0A8-df-1hC" firstAttribute="top" secondItem="QLT-ce-Me4" secondAttribute="bottom" id="aXA-Xt-U0q"/>
                 <constraint firstItem="QLT-ce-Me4" firstAttribute="height" secondItem="fnl-2z-Ty3" secondAttribute="height" multiplier="0.213439" id="g7E-xu-wFH"/>
-                <constraint firstItem="0A8-df-1hC" firstAttribute="height" secondItem="fnl-2z-Ty3" secondAttribute="height" multiplier="0.84058" id="gED-AB-0ak"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="QLT-ce-Me4" secondAttribute="top" constant="59" id="lhZ-qW-mIQ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="0A8-df-1hC" secondAttribute="trailing" id="vp0-t8-twY"/>
             </constraints>

@@ -30,11 +30,11 @@ class MoviesScreenView: UIView {
             textField.placeholder = "Search..."
         }
     }
+    
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
-            collectionView.isPagingEnabled = true
-            collectionView.showsHorizontalScrollIndicator = false
             
+            collectionView.showsHorizontalScrollIndicator = false
             collectionView.backgroundColor = .clear
             collectionView.isScrollEnabled = true
             

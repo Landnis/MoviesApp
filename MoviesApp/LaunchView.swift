@@ -7,12 +7,17 @@
 
 import UIKit
 
-class StrartingVew: UIView {
+class LaunchView: UIView {
 
     @IBOutlet weak var movieImg: UIImageView! {
         didSet {
-            movieImg.image = UIImage(named: "MoviewApp")
+            movieImg.image = UIImage(named: "transparent_movieImg")?.withRenderingMode(.alwaysTemplate)
+            movieImg.tintColor = .black
             movieImg.backgroundColor = .clear
+            movieImg.layer.shadowColor = UIColor.black.cgColor
+            movieImg.layer.shadowOpacity = 0.5
+            movieImg.layer.shadowRadius = 4
+            movieImg.layer.shadowOffset = CGSize(width: 1, height: 1)
         }
     }
     

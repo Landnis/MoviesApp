@@ -7,12 +7,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LaunchViewController: UIViewController {
 
-    @IBOutlet var startView: StrartingVew!
+    @IBOutlet var startView: LaunchView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        startView.backgroundColor = .red
+        startView.backgroundColor = UIColor(red: 116/255.0, green: 19/255.0, blue: 15/255.0, alpha: 1.0)
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -22,17 +22,17 @@
                         <rect key="frame" x="0.0" y="59" width="484" height="396"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7PA-Wr-oGS">
-                                <rect key="frame" x="0.0" y="0.0" width="484" height="231.33333333333334"/>
+                                <rect key="frame" x="0.0" y="5" width="484" height="231.33333333333334"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRN-7X-dTW">
-                                <rect key="frame" x="30" y="276.66666666666669" width="424" height="17.333333333333314"/>
+                                <rect key="frame" x="30" y="281.66666666666669" width="424" height="17.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3a-vH-qtn">
-                                <rect key="frame" x="30" y="248.33333333333334" width="424" height="20.333333333333343"/>
+                                <rect key="frame" x="30" y="253.33333333333334" width="424" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -45,7 +45,7 @@
                             <constraint firstItem="F3a-vH-qtn" firstAttribute="leading" secondItem="S6f-HE-38f" secondAttribute="leading" constant="30" id="59o-rb-YVU"/>
                             <constraint firstItem="F3a-vH-qtn" firstAttribute="top" secondItem="7PA-Wr-oGS" secondAttribute="bottom" constant="17" id="9zp-Yw-S3V"/>
                             <constraint firstAttribute="trailing" secondItem="7PA-Wr-oGS" secondAttribute="trailing" id="DfV-7D-Z9X"/>
-                            <constraint firstItem="7PA-Wr-oGS" firstAttribute="top" secondItem="S6f-HE-38f" secondAttribute="top" id="MQO-f1-izj"/>
+                            <constraint firstItem="7PA-Wr-oGS" firstAttribute="top" secondItem="S6f-HE-38f" secondAttribute="top" constant="5" id="MQO-f1-izj"/>
                             <constraint firstItem="7PA-Wr-oGS" firstAttribute="height" secondItem="S6f-HE-38f" secondAttribute="height" multiplier="0.584343" id="OMJ-6P-LGj"/>
                             <constraint firstItem="F3a-vH-qtn" firstAttribute="height" relation="lessThanOrEqual" secondItem="7PA-Wr-oGS" secondAttribute="height" multiplier="0.405031" id="Rgd-tP-jLr"/>
                             <constraint firstItem="7PA-Wr-oGS" firstAttribute="leading" secondItem="S6f-HE-38f" secondAttribute="leading" id="YtB-WP-yIH"/>
