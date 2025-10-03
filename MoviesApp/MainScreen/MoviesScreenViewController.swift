@@ -27,6 +27,10 @@ class MoviesScreenViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
     func getPopularMovies() async {
         do {
             let moviesResponse: MovieResponse = try await NetworkManager.shared.request(
@@ -42,8 +46,9 @@ class MoviesScreenViewController: UIViewController {
         }
     }
     
-    func presentMovieScreen() {
+    private func presentMovieScreen(movieId: Int) {
         let movieDeatilsScreenVC = MovieDetaisViewViewController()
+        movieDeatilsScreenVC.movieId = movieId
         self.navigationController?.pushViewController(movieDeatilsScreenVC, animated: true)
     }
     
@@ -68,28 +73,22 @@ class MoviesScreenViewController: UIViewController {
                 decodable: SearchResponse.self
             )
             let filteredResults = searchResponse.results.filter { $0.mediaType == "movie"}
+            print("Found \(filteredResults) results")
             searchResults = filteredResults
             movieScreenView.collectionView.reloadData()
-            print("Found \(filteredResults) results")
         } catch {
             print("Error searching movies:", error)
         }
     }
     
-    func fetchMovieDetail(id: Int) async {
+    private func fetchImage(imagePath: String) async -> UIImage? {
+        guard let url = URL(string: baseImgUrl + imagePath) else { return nil }
         do {
-            let movieDetail: MovieDetail = try await NetworkManager.shared.request(
-                target: AppRouter.movieDetail(id: id),
-                decodable: MovieDetail.self
-            )
-            
-            print("Title: \(String(describing: movieDetail.title))")
-            print("Overview: \(movieDetail.overview ?? "N/A")")
-            print("Release Date: \(movieDetail.releaseDate ?? "N/A")")
-            print("Genres: \(movieDetail.genres?.map { $0.name ?? "" }.joined(separator: ", ") ?? "N/A")")
-            print("Runtime: \(movieDetail.runtime ?? 0) minutes")
+            let (data, _) = try await URLSession.shared.data(from: url)
+            return UIImage(data: data)
         } catch {
-            print("Error fetching movie detail:", error)
+            print("Failed to load image:", error)
+            return nil
         }
     }
 
@@ -112,17 +111,13 @@ extension MoviesScreenViewController: UICollectionViewDelegate, UICollectionView
             {
                 return UICollectionViewCell()
             }
-            cell.contentView.backgroundColor = .blue
+            cell.contentView.backgroundColor = .systemBackground
             cell.movieTitleLabel.text = results.title
-            cell.releaseLabel.text = results.firstAirDate
-            if let url = URL(string: baseImgUrl + (results.posterPath ?? "")) {
-                let task = URLSession.shared.dataTask(with: url) { data, _, error in
-                    guard let data = data, error == nil else { return }
-                    DispatchQueue.main.async {
-                        cell.movieImage.image = UIImage(data: data)
-                    }
+            cell.releaseLabel.isHidden = true
+            Task {
+                if let image = await fetchImage(imagePath: results.posterPath ?? "") {
+                    cell.movieImage.image = image
                 }
-                task.resume()
             }
             return cell
         } else {
@@ -131,15 +126,11 @@ extension MoviesScreenViewController: UICollectionViewDelegate, UICollectionView
                 return UICollectionViewCell()
             }
             let movie = popularMoviesArray[indexPath.row]
-
-            if let url = URL(string: baseImgUrl + (movie.posterPath ?? "")) {
-                let task = URLSession.shared.dataTask(with: url) { data, _, error in
-                    guard let data = data, error == nil else { return }
-                    DispatchQueue.main.async {
-                        cell.movieImage.image = UIImage(data: data)
-                    }
+            cell.releaseLabel.isHidden = false
+            Task {
+                if let image = await fetchImage(imagePath: movie.posterPath ?? "") {
+                    cell.movieImage.image = image
                 }
-                task.resume()
             }
             cell.contentView.backgroundColor = .systemBackground
             cell.movieTitleLabel.text = movie.title
@@ -152,12 +143,14 @@ extension MoviesScreenViewController: UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.row)
-        var results = searchResults[indexPath.row]
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularMoviesCell", for: indexPath) as? PopularMoviesCell else
-        { return }
-        Task {
-            await fetchMovieDetail(id: results.id ?? 0)
+        if searchMovieMode {
+            let results = searchResults[indexPath.row]
+            presentMovieScreen(movieId: results.id ?? 0)
+        } else {
+            let results = popularMoviesArray[indexPath.row]
+            presentMovieScreen(movieId: results.id)
         }
+       
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,

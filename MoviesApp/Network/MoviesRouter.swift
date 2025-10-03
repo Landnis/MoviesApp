@@ -12,6 +12,7 @@ enum AppRouter: ApiRouter {
     case popularMovies
     case searchMovie(textQuery: String)
     case movieDetail(id: Int)
+    case creditsDetails(id: Int)
     
     var path: String {
         switch self {
@@ -21,12 +22,14 @@ enum AppRouter: ApiRouter {
             "/3/search/multi?api_key="
         case .movieDetail(let id):
             "/3/movie/\(id)?api_key="
+        case .creditsDetails(let id):
+            "/3/movie/\(id)/credits?api_key="
         }
     }
     
     var method: HTTPMethod {
         switch self {
-        case .popularMovies, .searchMovie, .movieDetail:
+        case .popularMovies, .searchMovie, .movieDetail, .creditsDetails:
                 .get
         }
     }
@@ -41,6 +44,8 @@ enum AppRouter: ApiRouter {
                let fullURL = "https://api.themoviedb.org" + path + apiKey + "&query=" + encodedQuery + "&page=1"
                return URL(string: fullURL)!
            case .movieDetail:
+               return URL(string: "https://api.themoviedb.org" + path + apiKey)!
+           case .creditsDetails:
                return URL(string: "https://api.themoviedb.org" + path + apiKey)!
            }
        }

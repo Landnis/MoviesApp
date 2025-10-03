@@ -33,7 +33,6 @@ class MoviesScreenView: UIView {
     
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
-            
             collectionView.showsHorizontalScrollIndicator = false
             collectionView.backgroundColor = .clear
             collectionView.isScrollEnabled = true
