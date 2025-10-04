@@ -108,14 +108,16 @@ extension MovieDetaisViewViewController: UICollectionViewDelegate, UICollectionV
                 return UICollectionViewCell()
             }
             Task {
-                if let image = await getImage(imagePath: movieDetails?.posterPath ?? "N/A") {
+                if let image = await getImage(imagePath: movieDetails?.posterPath ?? "") {
                     cell.movieImg.image = image
+                } else {
+                    cell.movieImg.image = UIImage(named: "userDefaultImg")
                 }
             }
             cell.genreLabel.isHidden = false
             cell.summaryLabel.isHidden = false
             cell.titleLabel.text = movieDetails?.title
-            cell.genreLabel.text = movieDetails?.genres?.first?.name ?? "N/A"
+            cell.genreLabel.text = movieDetails?.genres?.first?.name ?? ""
             cell.summaryLabel.text = movieDetails?.overview
             return cell
            } else {
@@ -125,8 +127,10 @@ extension MovieDetaisViewViewController: UICollectionViewDelegate, UICollectionV
                    return UICollectionViewCell()
                }
                Task {
-                   if let image = await getImage(imagePath: cast.profilePath ?? "N/A") {
+                   if let image = await getImage(imagePath: cast.profilePath ?? "") {
                        cell.movieImg.image = image
+                   } else {
+                       cell.movieImg.image = UIImage(named: "userDefaultImg")
                    }
                }
                cell.titleLabel.text = cast.name
@@ -142,7 +146,7 @@ extension MovieDetaisViewViewController: UICollectionViewDelegate, UICollectionV
         if indexPath.section == 0 {
             return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height / 1.5)
         } else {
-            return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height / 3)
+            return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height / 4)
         }
     }
     

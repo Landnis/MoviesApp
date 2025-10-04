@@ -17,11 +17,13 @@ class MoviesScreenViewController: UIViewController {
     var searchResults = [SearchResult]()
     var searchMovieMode: Bool = false
     var baseImgUrl = "https://image.tmdb.org/t/p/w500"
+    private let refreshControl = UIRefreshControl()
     override func viewDidLoad() {
         super.viewDidLoad()
         movieScreenView.collectionView.delegate = self
         movieScreenView.collectionView.dataSource = self
         movieScreenView.textField.delegate = self
+        setupRefreshControl()
         Task {
             await getPopularMovies()
         }
@@ -50,6 +52,20 @@ class MoviesScreenViewController: UIViewController {
         let movieDeatilsScreenVC = MovieDetaisViewViewController()
         movieDeatilsScreenVC.movieId = movieId
         self.navigationController?.pushViewController(movieDeatilsScreenVC, animated: true)
+    }
+    
+    private func setupRefreshControl() {
+        refreshControl.addTarget(self, action: #selector(refreshCollectionView), for: .valueChanged)
+        movieScreenView.collectionView.refreshControl = refreshControl
+    }
+    
+    @objc private func refreshCollectionView() {
+        Task {
+            await getPopularMovies()
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+            }
+        }
     }
     
     func formatDate(dateString: String) -> String {
@@ -117,6 +133,8 @@ extension MoviesScreenViewController: UICollectionViewDelegate, UICollectionView
             Task {
                 if let image = await fetchImage(imagePath: results.posterPath ?? "") {
                     cell.movieImage.image = image
+                } else {
+                    cell.movieImage.image = UIImage(named: "userDefaultImg")
                 }
             }
             return cell
@@ -130,6 +148,8 @@ extension MoviesScreenViewController: UICollectionViewDelegate, UICollectionView
             Task {
                 if let image = await fetchImage(imagePath: movie.posterPath ?? "") {
                     cell.movieImage.image = image
+                } else {
+                    cell.movieImage.image = UIImage(named: "userDefaultImg")
                 }
             }
             cell.contentView.backgroundColor = .systemBackground

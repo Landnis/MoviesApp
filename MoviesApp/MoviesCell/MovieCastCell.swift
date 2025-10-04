@@ -52,7 +52,7 @@ extension MovieCastCell: UICollectionViewDelegate, UICollectionViewDataSource, U
         }
         let cast = creditsArray[indexPath.row]
         Task {
-            if let image = await fetchImage(imagePath: cast.profilePath ?? "N/A") {
+            if let image = await fetchImage(imagePath: cast.profilePath ?? "") {
                 cell.movieImg.image = image
             }
         }

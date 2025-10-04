@@ -17,7 +17,8 @@ class MovieDetailsView: UIView {
     
     @IBOutlet weak var backbutton: UIButton! {
         didSet {
-            backbutton.setImage(UIImage(named: "back_img"), for: .normal)
+            backbutton.setImage(UIImage(named: "back_img")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            backbutton.tintColor = .white
             backbutton.setTitle("", for: .normal)
         }
     }

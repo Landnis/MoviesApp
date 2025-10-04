@@ -43,9 +43,7 @@ enum AppRouter: ApiRouter {
                let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
                let fullURL = "https://api.themoviedb.org" + path + apiKey + "&query=" + encodedQuery + "&page=1"
                return URL(string: fullURL)!
-           case .movieDetail:
-               return URL(string: "https://api.themoviedb.org" + path + apiKey)!
-           case .creditsDetails:
+           case .movieDetail, .creditsDetails:
                return URL(string: "https://api.themoviedb.org" + path + apiKey)!
            }
        }

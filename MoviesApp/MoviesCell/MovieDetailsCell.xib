@@ -22,22 +22,22 @@
                         <rect key="frame" x="0.0" y="59" width="431" height="298"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l4j-ew-VAg">
-                                <rect key="frame" x="0.0" y="10.000000000000007" width="431" height="124.66666666666669"/>
+                                <rect key="frame" x="0.0" y="10" width="431" height="154.33333333333334"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4T-NJ-lUc">
-                                <rect key="frame" x="30" y="142.66666666666666" width="371" height="20.333333333333343"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VY4-fs-aDm">
-                                <rect key="frame" x="30" y="168" width="371" height="21"/>
+                                <rect key="frame" x="30" y="172.33333333333334" width="371" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yg2-If-jjR">
-                                <rect key="frame" x="30" y="199" width="371" height="21"/>
+                                <rect key="frame" x="30" y="202.66666666666669" width="371" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VY4-fs-aDm">
+                                <rect key="frame" x="30" y="228.66666666666669" width="371" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -47,16 +47,14 @@
                         <constraints>
                             <constraint firstItem="l4j-ew-VAg" firstAttribute="top" secondItem="5zN-ng-Xv0" secondAttribute="top" constant="10" id="19P-vB-Wkl"/>
                             <constraint firstAttribute="trailing" secondItem="l4j-ew-VAg" secondAttribute="trailing" id="1BI-2k-UgK"/>
-                            <constraint firstItem="VY4-fs-aDm" firstAttribute="top" secondItem="H4T-NJ-lUc" secondAttribute="bottom" constant="5" id="698-ot-udA"/>
-                            <constraint firstItem="l4j-ew-VAg" firstAttribute="height" secondItem="5zN-ng-Xv0" secondAttribute="height" multiplier="0.418357" id="6Og-go-hhV"/>
+                            <constraint firstItem="VY4-fs-aDm" firstAttribute="top" secondItem="yg2-If-jjR" secondAttribute="bottom" constant="5" id="26G-h7-WTk"/>
+                            <constraint firstItem="H4T-NJ-lUc" firstAttribute="height" relation="greaterThanOrEqual" secondItem="5zN-ng-Xv0" secondAttribute="height" multiplier="0.0182327" id="3KY-8e-TCy"/>
                             <constraint firstItem="l4j-ew-VAg" firstAttribute="leading" secondItem="5zN-ng-Xv0" secondAttribute="leading" id="CNn-YD-0xo"/>
-                            <constraint firstAttribute="trailing" secondItem="yg2-If-jjR" secondAttribute="trailing" constant="30" id="Eeu-4V-0Yh"/>
-                            <constraint firstItem="yg2-If-jjR" firstAttribute="top" secondItem="VY4-fs-aDm" secondAttribute="bottom" constant="10" id="IsB-PO-b2d"/>
-                            <constraint firstItem="VY4-fs-aDm" firstAttribute="leading" secondItem="5zN-ng-Xv0" secondAttribute="leading" constant="30" id="K0Q-De-fUz"/>
-                            <constraint firstAttribute="trailing" secondItem="VY4-fs-aDm" secondAttribute="trailing" constant="30" id="RUj-L3-ohs"/>
-                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="yg2-If-jjR" secondAttribute="bottom" constant="10" id="XDP-fw-ybj"/>
+                            <constraint firstItem="l4j-ew-VAg" firstAttribute="height" secondItem="5zN-ng-Xv0" secondAttribute="height" multiplier="0.517897" id="ULg-bu-QF2"/>
+                            <constraint firstItem="yg2-If-jjR" firstAttribute="height" relation="greaterThanOrEqual" secondItem="5zN-ng-Xv0" secondAttribute="height" multiplier="0.0104698" id="dEb-Pm-KdD"/>
                             <constraint firstItem="H4T-NJ-lUc" firstAttribute="top" secondItem="l4j-ew-VAg" secondAttribute="bottom" constant="8" symbolic="YES" id="fDj-Gu-KT5"/>
-                            <constraint firstItem="yg2-If-jjR" firstAttribute="leading" secondItem="5zN-ng-Xv0" secondAttribute="leading" constant="30" id="vld-0I-SJh"/>
+                            <constraint firstItem="VY4-fs-aDm" firstAttribute="height" relation="greaterThanOrEqual" secondItem="5zN-ng-Xv0" secondAttribute="height" multiplier="0.0104698" id="mdP-ea-fBJ"/>
+                            <constraint firstItem="yg2-If-jjR" firstAttribute="top" secondItem="H4T-NJ-lUc" secondAttribute="bottom" constant="10" id="pSv-Kv-ho1"/>
                             <constraint firstAttribute="trailing" secondItem="H4T-NJ-lUc" secondAttribute="trailing" constant="30" id="ycL-Cj-16I"/>
                             <constraint firstItem="H4T-NJ-lUc" firstAttribute="leading" secondItem="5zN-ng-Xv0" secondAttribute="leading" constant="30" id="zNX-na-nC0"/>
                         </constraints>
@@ -67,7 +65,12 @@
             <constraints>
                 <constraint firstItem="5zN-ng-Xv0" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" id="5R0-9r-R71"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="top" secondItem="5zN-ng-Xv0" secondAttribute="top" id="7C5-QM-Q0Y"/>
+                <constraint firstItem="VY4-fs-aDm" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="30" id="EB9-WJ-taW"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="yg2-If-jjR" secondAttribute="trailing" constant="30" id="J8V-wF-oQ7"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="VY4-fs-aDm" secondAttribute="bottom" constant="3" id="XRh-x9-oT0"/>
                 <constraint firstItem="5zN-ng-Xv0" firstAttribute="bottom" secondItem="ZTg-uK-7eu" secondAttribute="bottom" id="aFW-wA-O6K"/>
+                <constraint firstItem="yg2-If-jjR" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="30" id="gIl-sX-Fan"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="VY4-fs-aDm" secondAttribute="trailing" constant="30" id="msB-hh-2af"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="5zN-ng-Xv0" secondAttribute="trailing" id="vzz-aw-unf"/>
             </constraints>
             <size key="customSize" width="431" height="391"/>
