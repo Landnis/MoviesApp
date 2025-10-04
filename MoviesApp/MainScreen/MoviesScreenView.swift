@@ -9,6 +9,14 @@ import UIKit
 
 class MoviesScreenView: UIView {
 
+    @IBOutlet weak var appImage: UIImageView! {
+        didSet {
+            appImage.backgroundColor = .clear
+            appImage.image = UIImage(named: "transparent_movieImg")?.withRenderingMode(.alwaysTemplate)
+            appImage.tintColor = .white
+        }
+    }
+    
     @IBOutlet weak var topView: MoviesScreenView! {
         didSet {
             topView.backgroundColor = .systemFill
