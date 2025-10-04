@@ -67,7 +67,8 @@ struct Cast: Decodable {
         case id = "id"
         case name = "name"
         case popularity = "popularity"
-        case character, order
+        case character = "charecter"
+        case order = "order"
         case knownForDepartment = "known_for_department"
         case originalName = "original_name"
         case profilePath = "profile_path"

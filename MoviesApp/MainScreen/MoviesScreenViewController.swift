@@ -154,7 +154,7 @@ extension MoviesScreenViewController: UICollectionViewDelegate, UICollectionView
             }
             cell.contentView.backgroundColor = .systemBackground
             cell.movieTitleLabel.text = movie.title
-            cell.releaseLabel.text = formatDate(dateString: movie.releaseDate)
+            cell.releaseLabel.text = formatDate(dateString: movie.releaseDate ?? "")
             return cell
         }
         
@@ -167,7 +167,7 @@ extension MoviesScreenViewController: UICollectionViewDelegate, UICollectionView
             presentMovieScreen(movieId: results.id ?? 0)
         } else {
             let results = popularMoviesArray[indexPath.row]
-            presentMovieScreen(movieId: results.id)
+            presentMovieScreen(movieId: results.id ?? 0)
         }
        
     }
