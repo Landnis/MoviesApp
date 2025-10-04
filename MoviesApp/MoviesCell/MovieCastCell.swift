@@ -33,7 +33,7 @@ class MovieCastCell: UICollectionViewCell {
             let (data, _) = try await URLSession.shared.data(from: url)
             return UIImage(data: data)
         } catch {
-            print("Failed to load image:", error)
+            debugPrint("Failed to load image:", error)
             return nil
         }
     }

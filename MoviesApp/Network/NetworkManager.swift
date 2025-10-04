@@ -8,17 +8,13 @@
 import Foundation
 import Alamofire
 
-protocol NetworkManaging: AnyObject {
-    @discardableResult func request<responseData: Decodable>(target: ApiRouter, decodable: responseData.Type) async throws -> responseData
-}
-
 class NetworkManager {
     static let shared = NetworkManager()
     private init() {}
     func request<responseData: Decodable>(target: AppRouter, decodable: responseData.Type) async throws -> responseData {
         let (data, response) = try await URLSession.shared.data(from: target.url)
         if let httpResponse = response as? HTTPURLResponse {
-            print("Status code:", httpResponse.statusCode)
+            debugPrint("Status code:", httpResponse.statusCode)
         }
         
         guard let httpResponse = response as? HTTPURLResponse,

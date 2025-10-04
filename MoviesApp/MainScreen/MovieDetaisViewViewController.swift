@@ -59,9 +59,10 @@ class MovieDetaisViewViewController: UIViewController {
                 target: AppRouter.movieDetail(id: id),
                 decodable: MovieDetail.self
             )
+            debugPrint("The details of the movie are: \(movieDetail)")
             movieDetails = movieDetail
         } catch {
-            print("Error fetching movie detail:", error)
+            debugPrint("Error fetching movie detail:", error)
         }
     }
     
@@ -71,11 +72,12 @@ class MovieDetaisViewViewController: UIViewController {
                 target: AppRouter.creditsDetails(id: id),
                 decodable: MovieCredits.self
             )
+            debugPrint("The Cast of the movie is: \(movieCredits)")
             creditsArray = movieCredits.cast ?? []
             movieDetailsView.collectionView.reloadData()
             
         } catch {
-            print("Error fetching movie detail:", error)
+            debugPrint("Error fetching movie detail:", error)
         }
     }
     
@@ -85,7 +87,7 @@ class MovieDetaisViewViewController: UIViewController {
             let (data, _) = try await URLSession.shared.data(from: url)
             return UIImage(data: data)
         } catch {
-            print("Failed to load image:", error)
+            debugPrint("Failed to load image:", error)
             return nil
         }
     }

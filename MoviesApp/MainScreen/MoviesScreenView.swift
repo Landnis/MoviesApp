@@ -19,7 +19,7 @@ class MoviesScreenView: UIView {
     
     @IBOutlet weak var topView: MoviesScreenView! {
         didSet {
-            topView.backgroundColor = .systemFill
+            topView.backgroundColor = .lightGray
             topView.layer.cornerRadius = 21.0
             topView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
             topView.clipsToBounds = true
@@ -41,6 +41,10 @@ class MoviesScreenView: UIView {
     
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
+            let layout = UICollectionViewFlowLayout()
+            layout.minimumLineSpacing = 0
+            layout.minimumInteritemSpacing = 0
+            collectionView.collectionViewLayout = layout
             collectionView.showsHorizontalScrollIndicator = false
             collectionView.backgroundColor = .clear
             collectionView.isScrollEnabled = true

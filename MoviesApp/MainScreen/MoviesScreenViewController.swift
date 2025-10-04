@@ -40,11 +40,11 @@ class MoviesScreenViewController: UIViewController {
                 decodable: MovieResponse.self
             )
             
-            print("Fetched \(moviesResponse.results.count) movies")
+            debugPrint("Fetched \(moviesResponse.results.count) movies")
             popularMoviesArray = moviesResponse.results
             movieScreenView.collectionView.reloadData()
         } catch {
-            print("Error fetching popular movies: \(error)")
+            debugPrint("Error fetching popular movies: \(error)")
         }
     }
     
@@ -89,11 +89,11 @@ class MoviesScreenViewController: UIViewController {
                 decodable: SearchResponse.self
             )
             let filteredResults = searchResponse.results.filter { $0.mediaType == "movie"}
-            print("Found \(filteredResults) results")
+            debugPrint("Found \(filteredResults) results")
             searchResults = filteredResults
             movieScreenView.collectionView.reloadData()
         } catch {
-            print("Error searching movies:", error)
+            debugPrint("Error searching movies:", error)
         }
     }
     
@@ -103,7 +103,7 @@ class MoviesScreenViewController: UIViewController {
             let (data, _) = try await URLSession.shared.data(from: url)
             return UIImage(data: data)
         } catch {
-            print("Failed to load image:", error)
+            debugPrint("Failed to load image:", error)
             return nil
         }
     }
@@ -162,7 +162,6 @@ extension MoviesScreenViewController: UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
         if searchMovieMode {
             let results = searchResults[indexPath.row]
             presentMovieScreen(movieId: results.id ?? 0)
@@ -198,17 +197,12 @@ extension MoviesScreenViewController: UITextFieldDelegate {
             Task {
                 await searchForMovies(textQuery: newText)
             }
-            print(newText)
         }
         return true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        if let query = textField.text, !query.isEmpty {
-            //performSearch(query: query)
-            print(query)
-        }
         return true
     }
 }
